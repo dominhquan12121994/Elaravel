@@ -15,6 +15,7 @@
 // FrontEnd
 Route::get('/', 'HomeController@index');
 Route::get('/trang-chu', 'HomeController@index');
+Route::post('/search', 'HomeController@search');
 
 // Danh mục sản phẩm trang chủ
 Route::get('/danh-muc-san-pham/{category_id}', 'CategoryProduct@show_category_home');
@@ -61,3 +62,24 @@ Route::post('/save-product', 'ProductController@save_product');
 Route::get('/edit-product/{product_id}', 'ProductController@edit_product');
 Route::get('/delete-product/{product_id}', 'ProductController@delete_product');
 Route::post('/update-product/{product_id}', 'ProductController@update_product');
+
+// Cart
+Route::post('/save-cart', 'CartController@save_cart');
+Route::get('/show-cart', 'CartController@show_cart');
+Route::get('/delete-to-cart/{row_id}', 'CartController@delete_to_cart');
+Route::post('/update-cart-quantity', 'CartController@update_cart_quantity');
+
+// Checkout
+Route::get('/login-checkout', 'CheckoutController@login_checkout');
+Route::post('/add-customer', 'CheckoutController@add_customer');
+Route::get('/checkout', 'CheckoutController@checkout');
+Route::post('/save-checkout-customer', 'CheckoutController@save_checkout_customer');
+Route::get('/payment', 'CheckoutController@payment');
+Route::get('/logout-checkout', 'CheckoutController@logout_checkout');
+Route::post('/login-customer', 'CheckoutController@login_customer');
+Route::post('/order-place', 'CheckoutController@order_place');
+
+
+
+
+

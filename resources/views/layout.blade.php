@@ -108,24 +108,39 @@
             <div class="shop-menu pull-right">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="#"><i class="fa fa-user"></i>
-                    Tài khoản</a>
-                </li>
-                <li>
                   <a href="#"><i class="fa fa-star"></i>
                     Mục ưu thích</a>
                 </li>
+                <?php
+                  $customer_id = Session::get('customer_id');
+                  $shipping_id = Session::get('shipping_id');
+                ?>
+                @if ($customer_id)
                 <li>
-                  <a href="checkout.html"><i class="fa fa-crosshairs"></i>
-                    Thanh toán</a>
+                  @if ($shipping_id)
+                  <a href="{{ URL::to('/payment') }}"><i class="fa fa-lock"></i> Thanh toán</a>
+                  @else
+                  <a href="{{ URL::to('/checkout') }}"><i class="fa fa-lock"></i> Thanh toán</a>
+                  @endif
                 </li>
+                @else
                 <li>
-                  <a href="cart.html"><i class="fa fa-shopping-cart"></i>
+                  <a href="{{ URL::to('/login-checkout') }}"><i class="fa fa-lock"></i> Thanh toán</a>
+                </li>
+                @endif
+                <li>
+                  <a href="{{ URL::to('/show-cart') }}"><i class="fa fa-shopping-cart"></i>
                     Giỏ hàng</a>
                 </li>
+                @if ($customer_id)
                 <li>
-                  <a href="login.html"><i class="fa fa-lock"></i> Đăng nhập</a>
+                  <a href="{{ URL::to('/logout-checkout') }}"><i class="fa fa-lock"></i> Đăng xuất</a>
                 </li>
+                @else
+                <li>
+                  <a href="{{ URL::to('/login-checkout') }}"><i class="fa fa-lock"></i> Đăng nhập</a>
+                </li>
+                @endif
               </ul>
             </div>
           </div>
@@ -162,10 +177,10 @@
                       <a href="product-details.html">Chi tiết sản phẩm</a>
                     </li>
                     <li>
-                      <a href="checkout.html">Thanh toán</a>
+                      <a href="{{ URL::to('/checkout') }}">Thanh toán</a>
                     </li>
                     <li>
-                      <a href="cart.html">Giỏ hàng</a>
+                      <a href="{{ URL::to('/show-cart') }}">Giỏ hàng</a>
                     </li>
                     <li>
                       <a href="login.html">Đăng nhập</a>
@@ -183,7 +198,7 @@
                     </li>
                   </ul>
                 </li>
-                <li><a href="404.html">Giỏ hàng</a></li>
+                <li><a href="{{ URL::to('/show-cart') }}">Giỏ hàng</a></li>
                 <li>
                   <a href="contact-us.html">Liên hệ</a>
                 </li>
@@ -191,9 +206,11 @@
             </div>
           </div>
           <div class="col-sm-3">
-            <div class="search_box pull-right">
-              <input type="text" placeholder="Tìm kiếm" />
-            </div>
+            <form action="{{ URL::to('/search') }}" method="POST">
+              {{ csrf_field() }}
+              <input name="search_content" type="text"/>
+              <input type="submit" value="Tìm kiếm" class="btn btn-success btn-sm">
+            </form>
           </div>
         </div>
       </div>

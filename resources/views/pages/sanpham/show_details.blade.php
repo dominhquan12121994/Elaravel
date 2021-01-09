@@ -36,15 +36,21 @@
       <h2>{{$details_product->product_name}}</h2>
       <p>Mã sản phẩm: {{$details_product->product_id}}</p>
       <img src="{{URL::asset('public/frontend/images/rating.png')}}" alt="" />
-      <span>
-        <span>{{number_format($details_product->product_price) . ' VND'}}</span>
-        <label>Số lượng:</label>
-        <input type="number" min="1" max="100" value="1" />
-        <button type="button" class="btn btn-fefault cart">
-          <i class="fa fa-shopping-cart"></i>
-          Thêm giỏ hàng
-        </button>
-      </span>
+
+      <form action="{{ URL::to('/save-cart') }}" method="post">
+        {{ csrf_field() }}
+        <span>
+          <span>{{number_format($details_product->product_price) . ' VND'}}</span>
+          <label>Số lượng:</label>
+          <input name="qty" type="number" min="1" max="100" value="1" />
+          <input name="productid_hidden" type="hidden" value="{{ $details_product->product_id }}"/>
+          <button type="submit" class="btn btn-fefault cart">
+            <i class="fa fa-shopping-cart"></i>
+            Thêm giỏ hàng
+          </button>
+        </span>
+      </form>
+
       <p><b>Tình trạng:</b> Còn hàng</p>
       <p><b>Điều kiện:</b> Mới 100%</p>
       <p><b>Danh mục sản phẩm: </b><a href="{{URL::to('/danh-muc-san-pham/'.$details_product->category_id)}}">{{$details_product->category_name}}</a></p>

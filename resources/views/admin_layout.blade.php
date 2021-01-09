@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <header class="header fixed-top clearfix">
       <!--logo start-->
       <div class="brand">
-        <a href="index.html" class="logo">
+        <a href="{{ URL::to('/dashboard') }}" class="logo">
           ADMIN
         </a>
         <div class="sidebar-toggle-box">
@@ -68,10 +68,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <img alt="" src="{{asset('backend/images/2.png')}}">
               <span class="username">
                 <?php
-                  $username = Session::get('admin_name');
-                  if ($username) {
-                    echo $username;
-                  }
+                $username = Session::get('admin_name');
+                if ($username) {
+                  echo $username;
+                }
                 ?>
               </span>
               <b class="caret"></b>
@@ -163,6 +163,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <script src="{{asset('backend/js/jquery.nicescroll.js')}}"></script>
   <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
   <script src="{{asset('backend/js/jquery.scrollTo.js')}}"></script>
+
+  <script>
+    $(document).ready(function() {
+      console.log('jquery loaded');
+    });
+  </script>
+
+  <!-- jquery form validation -->
+  <!-- <script src="{{asset('backend/js/jquery.validate.min.js')}}"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+    $("#form1").validate();
+  </script>
+  <!-- ..jquery form validation -->
+
+  <!-- ckeditor -->
+  <script src="{{asset('backend/ckeditor/ckeditor.js')}}"></script>
+  <script>
+    CKEDITOR.replace('ckeditor1');
+    CKEDITOR.replace('ckeditor2');
+  </script>
+  <!-- ..ckeditor -->
   <!-- morris JavaScript -->
   <script>
     $(document).ready(function() {

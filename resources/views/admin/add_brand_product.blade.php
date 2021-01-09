@@ -28,8 +28,8 @@
             <div class="form-group">
               <label for="exampleInputPassword1">Hiển thị</label>
               <select name="brand_product_status" class="form-control input-lg m-bot15">
-                <option value="0">Ẩn</option>
                 <option value="1">Hiển thị</option>
+                <option value="0">Ẩn</option>
               </select>
             </div>
             <button name="add_brand_product" type="submit" class="btn btn-info">Thêm thương hiệu</button>

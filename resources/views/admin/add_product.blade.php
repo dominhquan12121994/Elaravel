@@ -15,27 +15,28 @@
       ?>
       <div class="panel-body">
         <div class="position-center">
-          <form enctype="multipart/form-data" role="form" method="POST" action="{{URL::to('/save-product')}}">
+          <form id="form1" enctype="multipart/form-data" role="form" method="POST" action="{{URL::to('/save-product')}}">
             {{ csrf_field() }}
             <div class="form-group">
               <label for="exampleInputEmail1">Tên sản phẩm</label>
-              <input name="product_name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên sản phẩm">
+              <input name="product_name" type="text" class="form-control" id="firstname" data-rule-required="true" placeholder="Tên sản phẩm" 
+                data-validation="length" data-validation-length="min3" data-validation-error-msg="Vui lòng điền ít nhất 3 kí tự">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Giá sản phẩm</label>
-              <input name="product_price" type="text" class="form-control" id="exampleInputEmail1" placeholder="Giá sản phẩm">
+              <input name="product_price" type="text" class="form-control" id="exampleInputEmail11" placeholder="Giá sản phẩm">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Hình ảnh sản phẩm</label>
-              <input name="product_image" type="file" class="form-control" id="exampleInputEmail1" placeholder="Hình ảnh sản phẩm">
+              <input name="product_image" type="file" class="form-control" id="exampleInputEmail111" placeholder="Hình ảnh sản phẩm">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Mô tả sản phẩm</label>
-              <textarea name="product_desc" style="resize: none;" rows="5" class="form-control" id="exampleInputPassword1" placeholder="Mô tả sản phẩm"></textarea>
+              <textarea name="product_desc" style="resize: none;" rows="5" class="form-control" id="ckeditor1" placeholder="Mô tả sản phẩm"></textarea>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Nội dung sản phẩm</label>
-              <textarea name="product_content" style="resize: none;" rows="5" class="form-control" id="exampleInputPassword1" placeholder="Nội dung sản phẩm"></textarea>
+              <textarea name="product_content" style="resize: none;" rows="5" class="form-control" id="ckeditor2" placeholder="Nội dung sản phẩm"></textarea>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Danh mục sản phẩm</label>
@@ -56,8 +57,8 @@
             <div class="form-group">
               <label for="exampleInputPassword1">Hiển thị</label>
               <select name="product_status" class="form-control input-lg m-bot15">
-                <option value="0">Ẩn</option>
                 <option value="1">Hiển thị</option>
+                <option value="0">Ẩn</option>
               </select>
             </div>
             <button name="add_product" type="submit" class="btn btn-info">Thêm sản phẩm</button>
