@@ -337,7 +337,7 @@
                 <ul class="nav nav-pills nav-stacked">
                   <li>
                     <a href="{{URL::to('/thuong-hieu-san-pham/'.$brand->brand_id)}}">
-                      <span class="pull-right">(50)</span>{{$brand->brand_name}}</a>
+                      <span class="pull-right"></span>{{$brand->brand_name}}</a>
                   </li>
                 </ul>
               </div>
@@ -345,6 +345,7 @@
             </div>
             <!--/brands_products-->
 
+            {{--
             <div class="price-range">
               <!--price-range-->
               <h2>Khoảng giá</h2>
@@ -356,6 +357,7 @@
               </div>
             </div>
             <!--/price-range-->
+            --}}
 
             <div class="shipping text-center">
               <!--shipping-->
