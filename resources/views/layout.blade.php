@@ -107,10 +107,10 @@
           <div class="col-sm-8">
             <div class="shop-menu pull-right">
               <ul class="nav navbar-nav">
-                <li>
+                <!-- <li>
                   <a href="#"><i class="fa fa-star"></i>
                     Mục ưu thích</a>
-                </li>
+                </li> -->
                 <?php
                   $customer_id = Session::get('customer_id');
                   $shipping_id = Session::get('shipping_id');
@@ -168,14 +168,14 @@
                   <a href="{{URL::to('/trang-chu')}}" class="active">Trang chủ</a>
                 </li>
                 <li class="dropdown">
-                  <a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
+                  <a href="{{URL::to('/trang-chu')}}">Cửa hàng<i class="fa fa-angle-down"></i></a>
                   <ul role="menu" class="sub-menu">
                     <li>
-                      <a href="shop.html">Sản phẩm</a>
+                      <a href="{{URL::to('/trang-chu')}}">Sản phẩm</a>
                     </li>
-                    <li>
-                      <a href="product-details.html">Chi tiết sản phẩm</a>
-                    </li>
+                    <!-- <li>
+                      <a href="#">Chi tiết sản phẩm</a>
+                    </li> -->
                     <li>
                       <a href="{{ URL::to('/checkout') }}">Thanh toán</a>
                     </li>
@@ -183,25 +183,25 @@
                       <a href="{{ URL::to('/show-cart') }}">Giỏ hàng</a>
                     </li>
                     <li>
-                      <a href="login.html">Đăng nhập</a>
+                      <a href="{{ URL::to('/login-checkout') }}">Đăng nhập</a>
                     </li>
                   </ul>
                 </li>
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                   <a href="#">Bài viết<i class="fa fa-angle-down"></i></a>
                   <ul role="menu" class="sub-menu">
                     <li>
-                      <a href="blog.html">Danh sách bài viết</a>
+                      <a href="#">Danh sách bài viết</a>
                     </li>
                     <li>
-                      <a href="blog-single.html">Chi tiết bài viết</a>
+                      <a href="#">Chi tiết bài viết</a>
                     </li>
                   </ul>
-                </li>
+                </li> -->
                 <li><a href="{{ URL::to('/show-cart') }}">Giỏ hàng</a></li>
-                <li>
-                  <a href="contact-us.html">Liên hệ</a>
-                </li>
+                <!-- <li>
+                  <a href="#">Liên hệ</a>
+                </li> -->
               </ul>
             </div>
           </div>
